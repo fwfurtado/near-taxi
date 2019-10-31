@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  database:
+    image: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    volumes:
+      - near-taxi-mysql:/var/lib/mysql
+
+volumes:
+  near-taxi-mysql:

@@ -1,0 +1,15 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: cars
+  datasource:
+    url: jdbc:mysql://localhost/car?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+eureka:
+  instance:
+    instance-id: ${spring.application.name}-${random.uuid}

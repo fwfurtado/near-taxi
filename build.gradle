@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.0.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE' apply false
+}
+
+allprojects {
+    group = 'me.fwfurtado'
+    version = '0.0.1-SNAPSHOT'
+
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    ext {
+        set('springCloudVersion', "Hoxton.RC1")
+    }
+
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+}

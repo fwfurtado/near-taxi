@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  retryable: true
+  sensitive-headers:
+  routes:
+    cars:
+      serviceId: cars
+
+cars:
+  ribbon:
+    MaxAutoRetries: 3
+    MaxAutoRetriesNextServer: 3
+    OkToRetryOnAllOperations: true
+
+logging:
+  level:
+    org.springframework.cloud.netflix: debug
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: false
