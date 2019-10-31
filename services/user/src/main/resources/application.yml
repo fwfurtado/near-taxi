@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: cars
+    name: users
   datasource:
-    url: jdbc:mysql://localhost/car?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost/user?createDatabaseIfNotExist=true
     username: root
   jpa:
     hibernate:
@@ -16,3 +16,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+

@@ -1,4 +1,4 @@
-package me.fwfurtado.neartaxi.register;
+package me.fwfurtado.neartaxi.car.register;
 
 import static org.springframework.http.ResponseEntity.created;
 
@@ -8,8 +8,8 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.fwfurtado.neartaxi.common.ErrorPayload;
-import me.fwfurtado.neartaxi.domain.Brand;
+import me.fwfurtado.neartaxi.car.domain.Brand;
+import me.fwfurtado.neartaxi.lib.ErrorPayload;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;

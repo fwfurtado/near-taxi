@@ -1,12 +1,11 @@
-package me.fwfurtado.neartaxi.detail;
+package me.fwfurtado.neartaxi.car.detail;
 
 import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
 
 import java.util.Optional;
-import me.fwfurtado.neartaxi.domain.Brand;
+import me.fwfurtado.neartaxi.car.domain.Brand;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,5 +40,6 @@ class DetailController {
          Brand getBrand();
          String getModel();
          String getLicensePlate();
+         Long getOwnerId();
     }
 }

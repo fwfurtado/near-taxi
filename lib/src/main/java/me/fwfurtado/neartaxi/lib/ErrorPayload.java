@@ -1,12 +1,11 @@
-package me.fwfurtado.neartaxi.common;
+package me.fwfurtado.neartaxi.lib;
 
 import java.time.LocalDateTime;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class ErrorPayload {
 
     private final LocalDateTime date = LocalDateTime.now();
@@ -15,6 +14,6 @@ public class ErrorPayload {
 
     public static ErrorPayload of(Exception exception) {
         return new ErrorPayload(exception.getMessage());
-    }
 
+    }
 }

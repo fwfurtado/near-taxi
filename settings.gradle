@@ -1,6 +1,8 @@
 rootProject.name = 'near-taxi'
+include 'lib'
 include 'services'
 include ':services:car'
+include ':services:user'
 include 'infra'
 include ':infra:api-gateway'
 include ':infra:service-discovery'

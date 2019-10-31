@@ -1,4 +1,4 @@
-package me.fwfurtado.neartaxi;
+package me.fwfurtado.neartaxi.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

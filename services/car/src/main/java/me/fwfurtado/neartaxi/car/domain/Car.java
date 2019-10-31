@@ -1,4 +1,4 @@
-package me.fwfurtado.neartaxi.domain;
+package me.fwfurtado.neartaxi.car.domain;
 
 import java.time.Year;
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.fwfurtado.neartaxi.car.domain.Brand;
 
 @Entity
 @Getter

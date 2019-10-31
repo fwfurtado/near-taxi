@@ -1,4 +1,4 @@
-package me.fwfurtado.neartaxi.register;
+package me.fwfurtado.neartaxi.car.register;
 
 class CarAlreadyExistException extends IllegalArgumentException {
 

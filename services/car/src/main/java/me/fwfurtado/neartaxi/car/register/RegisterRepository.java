@@ -1,7 +1,7 @@
-package me.fwfurtado.neartaxi.register;
+package me.fwfurtado.neartaxi.car.register;
 
 import java.util.Optional;
-import me.fwfurtado.neartaxi.domain.Car;
+import me.fwfurtado.neartaxi.car.domain.Car;
 
 public interface RegisterRepository {
 

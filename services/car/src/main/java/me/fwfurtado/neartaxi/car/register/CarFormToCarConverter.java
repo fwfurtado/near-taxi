@@ -1,7 +1,7 @@
-package me.fwfurtado.neartaxi.register;
+package me.fwfurtado.neartaxi.car.register;
 
-import me.fwfurtado.neartaxi.domain.Car;
-import me.fwfurtado.neartaxi.register.RegisterController.CarForm;
+import me.fwfurtado.neartaxi.car.domain.Car;
+import me.fwfurtado.neartaxi.car.register.RegisterController.CarForm;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package me.fwfurtado.neartaxi.domain;
+package me.fwfurtado.neartaxi.car.domain;
 
 public enum Brand {
 
