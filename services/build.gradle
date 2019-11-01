@@ -6,7 +6,6 @@ subprojects {
 //        implementation 'org.springframework.cloud:spring-cloud-config-server'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-config'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
-//        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-turbine'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-turbine-stream'

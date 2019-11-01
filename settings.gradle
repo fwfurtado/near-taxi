@@ -6,4 +6,6 @@ include ':services:user'
 include 'infra'
 include ':infra:api-gateway'
 include ':infra:service-discovery'
+include ':infra:dashboard'
+include ':infra:configuration'
 
