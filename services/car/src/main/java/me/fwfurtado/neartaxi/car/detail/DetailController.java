@@ -4,7 +4,7 @@ import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
 
 import java.util.Optional;
-import me.fwfurtado.neartaxi.car.domain.Brand;
+import me.fwfurtado.neartaxi.car.detail.DetailRepository.CarProjection;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,22 +24,13 @@ class DetailController {
 
     @GetMapping("{id}")
     ResponseEntity<?> show(@PathVariable Long id) {
-        Optional<CarView> optionalCar = service.findById(id);
-
-        return optionalCar
+        return service.findById(id)
             .map(this::addHeader)
             .orElseGet(notFound()::build);
     }
 
     private ResponseEntity<?> addHeader(CarView carView) {
-
         return ok().header("SERVER_PORT", String.valueOf(port)).body(carView);
     }
 
-    interface CarView {
-         Brand getBrand();
-         String getModel();
-         String getLicensePlate();
-         Long getOwnerId();
-    }
 }
