@@ -3,34 +3,36 @@ package me.fwfurtado.neartaxi.car.detail;
 import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
 
-import java.util.Optional;
-import me.fwfurtado.neartaxi.car.detail.DetailRepository.CarProjection;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RefreshScope
 class DetailController {
 
     private final DetailService service;
-    private final int port;
+    private final int count;
 
-    DetailController(DetailService service, @Value("${server.port}") int port) {
+    DetailController(DetailService service, @Value("${cars.counter}") int count) {
         this.service = service;
-        this.port = port;
+        this.count = count;
     }
 
     @GetMapping("{id}")
     ResponseEntity<?> show(@PathVariable Long id) {
+        System.out.println(this);
+
         return service.findById(id)
             .map(this::addHeader)
             .orElseGet(notFound()::build);
     }
 
     private ResponseEntity<?> addHeader(CarView carView) {
-        return ok().header("SERVER_PORT", String.valueOf(port)).body(carView);
+        return ok().header("SERVER_COUNT", String.valueOf(count)).body(carView);
     }
 
 }
