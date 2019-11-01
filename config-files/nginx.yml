@@ -1,3 +1,7 @@
 
+spring:
+  application:
+    name: nginx
+
 nginx:
   another-host: http://localhost:8080
