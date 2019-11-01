@@ -8,4 +8,5 @@ include ':infra:api-gateway'
 include ':infra:service-discovery'
 include ':infra:dashboard'
 include ':infra:configuration'
+include ':infra:admin'
 

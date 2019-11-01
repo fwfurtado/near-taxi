@@ -9,6 +9,11 @@ services:
       - "3306:3306"
     volumes:
       - near-taxi-mysql:/var/lib/mysql
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
 volumes:
   near-taxi-mysql:
