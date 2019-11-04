@@ -11,8 +11,17 @@ import me.fwfurtado.neartaxi.car.domain.Brand;
 @AllArgsConstructor
 class CarView {
 
+    private Long id;
     private String model;
     private Brand brand;
     private String licensePlate;
-    private String ownerName;
+    private Owner owner;
+
+    @Getter
+    @AllArgsConstructor
+    @NoArgsConstructor(access = AccessLevel.PACKAGE)
+    static class Owner {
+        private Long id;
+        private String name;
+    }
 }

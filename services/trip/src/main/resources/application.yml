@@ -1,0 +1,23 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: trip
+  datasource:
+    url: jdbc:mysql://localhost/trip?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  jackson:
+    default-property-inclusion: non_null
+
+feign:
+  hystrix:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

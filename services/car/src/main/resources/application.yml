@@ -27,12 +27,3 @@ management:
     web:
       exposure:
         include: "*"
-eureka:
-  client:
-    enabled: false
-
----
-spring:
-  profiles: test
-  datasource:
-    url: jdbc:mysql://localhost/car_test?createDatabaseIfNotExist=true

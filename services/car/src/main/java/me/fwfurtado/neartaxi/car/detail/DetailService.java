@@ -1,6 +1,7 @@
 package me.fwfurtado.neartaxi.car.detail;
 
 import java.util.Optional;
+import me.fwfurtado.neartaxi.car.detail.CarView.Owner;
 import me.fwfurtado.neartaxi.car.detail.DetailRepository.CarProjection;
 import me.fwfurtado.neartaxi.car.detail.UserClient.OwnerView;
 import org.springframework.stereotype.Service;
@@ -24,11 +25,11 @@ class DetailService {
 
         OwnerView owner = userClient.findOwnerById(projection.getOwnerId());
 
-        return createCarBy(projection, owner.getName());
+        return createCarBy(projection, new Owner(owner.getId(), owner.getName()));
     }
 
-    private CarView createCarBy(CarProjection projection, String ownerName) {
-        return new CarView(projection.getModel(), projection.getBrand(), projection.getLicensePlate(), ownerName);
+    private CarView createCarBy(CarProjection projection, Owner owner) {
+        return new CarView(projection.getId(), projection.getModel(), projection.getBrand(), projection.getLicensePlate(), owner);
     }
 
 }
