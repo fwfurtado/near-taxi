@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.fwfurtado.neartaxi.car.domain.Brand;
 import me.fwfurtado.neartaxi.lib.ErrorPayload;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,8 @@ class RegisterController {
     }
 
     @PostMapping
-    ResponseEntity<?> create(@RequestBody CarForm form, UriComponentsBuilder uriBuilder) {
+    @CacheEvict(cacheNames = "cars")
+    public ResponseEntity<?> create(@RequestBody CarForm form, UriComponentsBuilder uriBuilder) {
         Long id = registration.register(form);
 
         URI resourceLocation = uriBuilder.path("{id}").build(id);

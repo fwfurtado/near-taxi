@@ -4,6 +4,7 @@ import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ class DetailController {
     }
 
     @GetMapping("{id}")
+    @Cacheable(cacheNames = "cars", key = "#id")
     public ResponseEntity<?> show(@PathVariable Long id) {
         System.out.println(this);
 

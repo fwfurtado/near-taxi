@@ -5,6 +5,9 @@ cars:
   counter: 0
 
 spring:
+  sleuth:
+    sampler:
+      probability: 1.0
   application:
     name: cars
   jpa:
@@ -18,7 +21,8 @@ spring:
       bindings:
         output:
           destination: cars
-
+        hystrixStreamOutput:
+          destination: springCloudHystrixStream
 feign:
   hystrix:
     enabled: true

@@ -1,0 +1,9 @@
+configurations {
+    compile.exclude module: "spring-boot-starter-web"
+    compile.exclude module: "spring-boot-starter-actuator"
+}
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-turbine-stream'
+    implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+}
