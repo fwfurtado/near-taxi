@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.0.RELEASE' apply false
+    id 'org.springframework.boot' version '2.1.9.RELEASE' apply false
     id 'io.spring.dependency-management' version '1.0.8.RELEASE' apply false
 }
 
@@ -14,7 +14,7 @@ allprojects {
     }
 
     ext {
-        set('springCloudVersion', "Hoxton.RC1")
+        set('springCloudVersion', "Greenwich.SR3")
         set('springBootAdminVersion', "2.1.5")
     }
 
@@ -55,8 +55,6 @@ configure(subprojects.findAll { !ignoredProjects.contains(it.name) }) {
     dependencies {
         annotationProcessor 'org.projectlombok:lombok'
 
-        testImplementation('org.springframework.boot:spring-boot-starter-test') {
-            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-        }
+        testImplementation('org.springframework.boot:spring-boot-starter-test')
     }
 }
