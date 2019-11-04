@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.fwfurtado.neartaxi.trip.common.CarClient.Car;
 import me.fwfurtado.neartaxi.trip.common.UserClient.Customer;
-import me.fwfurtado.neartaxi.trip.domain.Location;
 import me.fwfurtado.neartaxi.trip.domain.TripStatus;
 
 @Getter
@@ -24,6 +23,6 @@ class TripView {
     private Car car;
     private Customer customer;
 
-    private Location pickup;
-    private Location dropOff;
+    private String pickup;
+    private String dropOff;
 }

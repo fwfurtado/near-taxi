@@ -7,7 +7,6 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.fwfurtado.neartaxi.trip.domain.Location;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,14 +31,14 @@ class RegistrationController {
         return created(uri).build();
     }
 
-
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor(access = AccessLevel.PACKAGE)
     static class TripForm {
+
         private Long carId;
         private Long customerId;
-        private Location pickup;
-        private Location dropOff;
+        private String pickup;
+        private String dropOff;
     }
 }

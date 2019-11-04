@@ -33,21 +33,11 @@ public class Trip {
     private TripStatus status;
     private BigDecimal price;
 
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "latitude", column = @Column(name = "pickup_latitude")),
-        @AttributeOverride(name = "longitude", column = @Column(name = "pickup_longitude"))
-    })
-    private Location pickup;
+    private String pickup;
 
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "latitude", column = @Column(name = "drop_off_latitude")),
-        @AttributeOverride(name = "longitude", column = @Column(name = "drop_off_longitude"))
-    })
-    private Location dropOff;
+    private String dropOff;
 
-    public Trip(Long carId, Long customerId, LocalDateTime date, TripStatus status, Location pickup, Location dropOff) {
+    public Trip(Long carId, Long customerId, LocalDateTime date, TripStatus status, String pickup, String dropOff) {
         this.carId = carId;
         this.customerId = customerId;
         this.date = date;
