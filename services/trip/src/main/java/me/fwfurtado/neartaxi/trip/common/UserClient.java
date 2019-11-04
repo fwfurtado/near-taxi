@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "users", fallback = UserClientFallback.class)
 public interface UserClient {
 
-    @GetMapping
+    @GetMapping("{id}")
     Customer findCustomerById(@PathVariable("id") Long id);
 
     @Getter
