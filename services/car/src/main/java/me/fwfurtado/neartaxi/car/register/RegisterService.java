@@ -24,7 +24,7 @@ class RegisterService {
         this.channel = channel;
     }
 
-    Long register(CarForm form) {
+    public Long register(CarForm form) {
 
         repository.findCarByLicensePlate(form.getLicensePlate())
             .ifPresent(car -> {

@@ -23,7 +23,7 @@ class DetailController {
     }
 
     @GetMapping("{id}")
-    ResponseEntity<?> show(@PathVariable Long id) {
+    public ResponseEntity<?> show(@PathVariable Long id) {
         System.out.println(this);
 
         return service.findById(id)

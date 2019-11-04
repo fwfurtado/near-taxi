@@ -13,12 +13,6 @@ spring:
   datasource:
     username: root
     url: jdbc:mysql://localhost/car?createDatabaseIfNotExist=true
-  cloud:
-    stream:
-      bindings:
-        output:
-          destination: cars
-
 feign:
   hystrix:
     enabled: true
