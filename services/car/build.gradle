@@ -12,4 +12,5 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
 
     testRuntimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
 }

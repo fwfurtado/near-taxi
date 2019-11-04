@@ -1,7 +1,19 @@
+apply plugin: 'spring-cloud-contract'
+apply plugin: 'maven-publish'
+
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'mysql:mysql-connector-java'
 
     testRuntimeOnly 'com.h2database:h2'
+
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+}
+
+contracts {
+    basePackageForTests = 'me.fwfurtado.neartaxi.user'
+    baseClassMappings {
+        baseClassMapping(".*user.*", "me.fwfurtado.neartaxi.user.detail.DetailBase")
+    }
 }
