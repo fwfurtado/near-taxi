@@ -1,5 +1,3 @@
-import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties
-
 apply plugin: 'spring-cloud-contract'
 
 dependencies {
@@ -14,6 +12,7 @@ dependencies {
 
 contracts {
     basePackageForTests = 'me.fwfurtado.neartaxi.user'
+    
     baseClassMappings {
         baseClassMapping(".*user.*", "me.fwfurtado.neartaxi.user.detail.DetailBase")
     }
