@@ -1,5 +1,6 @@
+import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties
+
 apply plugin: 'spring-cloud-contract'
-apply plugin: 'maven-publish'
 
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'

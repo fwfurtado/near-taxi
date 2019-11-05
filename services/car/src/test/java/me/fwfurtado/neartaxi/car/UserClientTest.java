@@ -16,6 +16,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @AutoConfigureTestDatabase
 public class UserClientTest {
 
+    static {
+        System.setProperty("eureka.client.enabled", "false");
+        System.setProperty("spring.cloud.config.failFast", "false");
+    }
+
     @Autowired
     private UserClient client;
 
