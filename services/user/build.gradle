@@ -12,8 +12,17 @@ dependencies {
 
 contracts {
     basePackageForTests = 'me.fwfurtado.neartaxi.user'
-    
+
     baseClassMappings {
         baseClassMapping(".*user.*", "me.fwfurtado.neartaxi.user.detail.DetailBase")
+    }
+}
+
+publishing {
+    publications {
+        stubs(MavenPublication) {
+            artifactId "${project.name}-stubs"
+            artifact verifierStubsJar
+        }
     }
 }

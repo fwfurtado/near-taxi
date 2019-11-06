@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-@AutoConfigureStubRunner(stubsMode = StubsMode.LOCAL, ids = "me.fwfurtado.neartaxi:user:+:8090")
+@AutoConfigureStubRunner(ids = "me.fwfurtado.neartaxi:user:+:8090")
 @AutoConfigureTestDatabase
 public class UserClientTest {
 

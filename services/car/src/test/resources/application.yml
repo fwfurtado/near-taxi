@@ -1,0 +1,5 @@
+stubrunner:
+  repository-root: http://localhost:8081/nexus/repository/maven-snapshots/
+  username: admin
+  password: admin123
+  stubs-mode: remote

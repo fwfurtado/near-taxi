@@ -10,13 +10,15 @@ subprojects {
 //        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-turbine-stream'
 //
 //        implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
-//        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-security'
+//        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 //        implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
         implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
 //        implementation 'org.springframework.cloud:spring-cloud-stream'
 
 
+        implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+        implementation 'org.springframework.cloud:spring-cloud-starter-security'
 
 
 //        testImplementation 'org.springframework.cloud:spring-cloud-stream-test-support'

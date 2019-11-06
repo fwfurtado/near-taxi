@@ -9,19 +9,21 @@ import lombok.NoArgsConstructor;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
 
 @Component
 @EnableBinding(Sink.class)
 class CarListener {
 
-    @StreamListener(Sink.INPUT)
-    @SendTo("other")
-    String handle(CreatedCarEvent event) {
-        System.out.println(event);
+    private final CarService service;
 
-        return "ok";
+    CarListener(CarService service) {
+        this.service = service;
+    }
+
+    @StreamListener(Sink.INPUT)
+    void handle(CreatedCarEvent event) {
+        service.saveBy(event);
     }
 
 

@@ -31,4 +31,19 @@ management:
     web:
       exposure:
         include: "*"
+security:
+  oauth2:
+    client:
+      client-id: frontend
+      client-secret: secret
+      grant-type: password
+    resource:
+      jwt:
+        key-value: supersecretkey
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
