@@ -43,4 +43,6 @@ security:
   oauth2:
     authorization:
       jwt:
-        key-value: supersecretkey
+        key-store-password: supersecretpass
+        key-store: near-taxi.jks
+        key-alias: authorization-server

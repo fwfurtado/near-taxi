@@ -26,4 +26,13 @@ security:
       client-secret: secret
     resource:
       jwt:
-        key-value: supersecretkey
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxEzUPLmdt+UjDMM62Q+g
+          6BHkqezGkYgFTUETCiOZh9V3DKCBlYyWyIc0xwTZwB/4nEoGUhKn5TRxcY0jK7Es
+          nDMzRGDMkBuuDJb9FYxMnIpXKZoIsfw+/ICz9ad/yijt0SpSt0nihSDml/aWqxin
+          G8NcA1nTc+ka7qwSPKl73qh9Rk1HLqmncZT/Ac4GZOF94Pr4nKO+utk63Oh+uCCG
+          Gh7z/xDxfVf1bpPXF3GqlSJ24Y/0OYpKbRDL2oIGbEJm6XTd83JEtEQH/jjTcChj
+          b78jap8AvIlFAWd6wou1Y35DhLFw0L0BY3cEKdXSW2S8ZKripMtOVo8QJb/px2b/
+          nQIDAQAB
+          -----END PUBLIC KEY-----

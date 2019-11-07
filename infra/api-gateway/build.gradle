@@ -5,4 +5,5 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
     implementation 'org.springframework.cloud:spring-cloud-starter-security'
     implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
+    implementation 'com.nimbusds:nimbus-jose-jwt:8.2'
 }

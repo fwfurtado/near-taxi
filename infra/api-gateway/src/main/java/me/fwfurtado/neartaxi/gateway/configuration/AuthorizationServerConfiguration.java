@@ -1,12 +1,12 @@
 package me.fwfurtado.neartaxi.gateway.configuration;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerSecurityConfiguration;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
@@ -15,16 +15,19 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
+@Import(AuthorizationServerSecurityConfiguration.class)
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService service;
-    private final String jwtKeyValue;
+    private final JwtAccessTokenConverter tokenConverter;
+    private final JwtTokenStore tokenStore;
 
-    public AuthorizationServerConfiguration(AuthenticationManager authenticationManager, UserDetailsService service, @Value("${security.oauth2.authorization.jwt.key-value}") String jwtKeyValue) {
+    public AuthorizationServerConfiguration(AuthenticationManager authenticationManager, UserDetailsService service, JwtAccessTokenConverter tokenConverter, JwtTokenStore tokenStore) {
         this.authenticationManager = authenticationManager;
         this.service = service;
-        this.jwtKeyValue = jwtKeyValue;
+        this.tokenConverter = tokenConverter;
+        this.tokenStore = tokenStore;
     }
 
     @Override
@@ -39,8 +42,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-            .tokenStore(tokenStore())
-            .accessTokenConverter(tokenConverter())
+            .tokenStore(tokenStore)
+            .accessTokenConverter(tokenConverter)
             .userDetailsService(service)
             .authenticationManager(authenticationManager);
     }
@@ -52,17 +55,4 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
             .tokenKeyAccess("isAuthenticated()");
     }
 
-    @Bean
-    public JwtTokenStore tokenStore() {
-        return new JwtTokenStore(tokenConverter());
-    }
-
-    @Bean
-    public JwtAccessTokenConverter tokenConverter() {
-        var converter = new JwtAccessTokenConverter();
-
-        converter.setSigningKey(jwtKeyValue);
-
-        return converter;
-    }
 }
