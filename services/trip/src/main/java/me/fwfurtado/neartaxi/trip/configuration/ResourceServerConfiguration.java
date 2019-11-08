@@ -18,7 +18,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/**").access("#oauth2.hasScope('trip:all') and  hasRole('USER')")
+            .antMatchers("/trip/**").access("#oauth2.hasScope('trip:all') and  hasRole('USER')")
+            .antMatchers("/internal/**").permitAll()
             .anyRequest().authenticated();
     }
     @Bean

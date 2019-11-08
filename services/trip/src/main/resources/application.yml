@@ -2,6 +2,8 @@ server:
   port: 8030
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
   sleuth:
     sampler:
       probability: 1.0
@@ -34,9 +36,11 @@ management:
 security:
   oauth2:
     client:
-      client-id: frontend
+      client-id: internal
       client-secret: secret
-      grant-type: password
+      grant-type: client_credentials
+      scope: internal
+      access-token-uri: http://localhost:8080/oauth/token
     resource:
       jwt:
         key-value: |
@@ -49,7 +53,6 @@ security:
           b78jap8AvIlFAWd6wou1Y35DhLFw0L0BY3cEKdXSW2S8ZKripMtOVo8QJb/px2b/
           nQIDAQAB
           -----END PUBLIC KEY-----
-
 hystrix:
   command:
     default:

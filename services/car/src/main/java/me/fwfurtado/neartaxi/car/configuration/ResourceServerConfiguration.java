@@ -16,7 +16,10 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/**").access("#oauth2.hasScope('car:read') and hasRole('USER')");
+        http.authorizeRequests()
+        .antMatchers("/cars/internal/**").access("#oauth2.hasScope('internal')")
+        .antMatchers("/cars/**").access("#oauth2.hasScope('car:read') and hasRole('USER')")
+        ;
     }
 
     @Bean

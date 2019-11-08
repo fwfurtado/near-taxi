@@ -36,7 +36,12 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
             .withClient("frontend")
             .secret("{bcrypt}$2a$10$maBYaPpmAcKkku1Z8Y2nB.3sHNwnR65rQjsEJsnWkkje9f7ft9NFC")
             .authorizedGrantTypes("password", "refresh_token")
-            .scopes("trip:all", "trip:read", "trip:write", "car:read", "user:read");
+            .scopes("trip:all", "trip:read", "trip:write", "car:read", "user:read")
+                .and()
+            .withClient("internal")
+            .secret("{bcrypt}$2a$10$maBYaPpmAcKkku1Z8Y2nB.3sHNwnR65rQjsEJsnWkkje9f7ft9NFC")
+            .authorizedGrantTypes("client_credentials")
+            .scopes("internal");
     }
 
     @Override

@@ -8,8 +8,9 @@ spring:
 zuul:
   retryable: true
   sensitive-headers:
-#  routes:
-#    cars:
+  routes:
+    cars:
+      stripPrefix: false
 #      serviceId: cars
 #    trip:
 #      serviceId: trip
